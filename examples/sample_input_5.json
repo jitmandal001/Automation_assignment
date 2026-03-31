@@ -1,0 +1,8 @@
+{
+  "load_capacity_kg": 300,
+  "platform_length_mm": 1000,
+  "platform_width_mm": 650,
+  "desired_material": "Mild Steel",
+  "number_of_wheels": 2,
+  "operating_environment": "Indoor"
+}

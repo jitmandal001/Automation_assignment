@@ -1,0 +1,36 @@
+Section,Field,Value
+Input,load_capacity_kg,650.0
+Input,platform_length_mm,1300.0
+Input,platform_width_mm,850.0
+Input,desired_material,Mild Steel
+Input,number_of_wheels,4
+Input,operating_environment,Outdoor
+Calculation,recommended_tube_mm,50x50x3.0
+Calculation,platform_thickness_mm,4.0
+Calculation,frame_mass_kg,26.56
+Calculation,deck_mass_kg,34.7
+Calculation,axle_set_mass_kg,1.96
+Calculation,wheel_set_mass_kg,26.0
+Calculation,payload_kg,650.0
+Calculation,total_loaded_mass_kg,739.22
+Calculation,load_per_wheel_n,1812.93
+Calculation,rolling_force_n,217.55
+Calculation,cg_height_mm,596.41
+Calculation,tipping_angle_deg,35.47
+Calculation,yield_strength_mpa,250.0
+Calculation,safety_factor,2.5
+Calculation,estimated_allowable_stress_mpa,100.0
+Cost,material_cost_inr,4741.5
+Cost,wheel_cost_inr,7000.0
+Cost,hanger_cost_inr,1120.0
+Cost,fastener_cost_inr,650.0
+Cost,fabrication_cost_inr,4247.41
+Cost,assembly_cost_inr,1630.37
+Cost,total_estimated_cost_inr,19389.28
+BOM,item,qty,unit,spec
+BOM,Square tube frame,6.0,m,50x50x3.0 mm
+BOM,Platform sheet,1.105,m2,Mild Steel 4.0 mm
+BOM,Wheels,4,nos,Industrial caster
+BOM,Axle rod,2,nos,"Solid round bar, 14 mm dia x 0.81 m"
+BOM,Axle hanger brackets,4,nos,Welded hanger/clamp set (approx)
+BOM,Fasteners set,1,set,M10 bolts/nuts/washers (approx)

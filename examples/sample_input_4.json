@@ -1,0 +1,8 @@
+{
+  "load_capacity_kg": 900,
+  "platform_length_mm": 1600,
+  "platform_width_mm": 1000,
+  "desired_material": "Stainless Steel",
+  "number_of_wheels": 4,
+  "operating_environment": "Indoor"
+}

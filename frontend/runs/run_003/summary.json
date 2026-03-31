@@ -1,0 +1,97 @@
+{
+  "run_metadata": {
+    "run_id": "run_003",
+    "generated_at_utc": "2026-03-30T10:45:03Z"
+  },
+  "input": {
+    "load_capacity_kg": 650.0,
+    "platform_length_mm": 1300.0,
+    "platform_width_mm": 850.0,
+    "desired_material": "Stainless Steel",
+    "number_of_wheels": 4,
+    "operating_environment": "Outdoor"
+  },
+  "project_timeline": {
+    "assignment_timeline_hours": 72,
+    "note": "Total assessment execution window."
+  },
+  "engineering_calculations": {
+    "recommended_tube_mm": "50x50x3.0",
+    "platform_thickness_mm": 3.5,
+    "frame_mass_kg": 27.07,
+    "deck_mass_kg": 30.94,
+    "axle_set_mass_kg": 1.96,
+    "wheel_set_mass_kg": 26.0,
+    "payload_kg": 650.0,
+    "total_loaded_mass_kg": 735.97,
+    "load_per_wheel_n": 1804.97,
+    "rolling_force_n": 216.6,
+    "cg_height_mm": 597.72,
+    "tipping_angle_deg": 35.41,
+    "yield_strength_mpa": 215.0,
+    "safety_factor": 2.5,
+    "estimated_allowable_stress_mpa": 86.0
+  },
+  "drawings": {
+    "dxf": "C:\\automation\\frontend\\runs\\run_003\\trolley_views.dxf",
+    "pdf": "C:\\automation\\frontend\\runs\\run_003\\trolley_views.pdf"
+  },
+  "cad_model": "C:\\automation\\frontend\\runs\\run_003\\trolley.scad",
+  "bom": [
+    {
+      "item": "Square tube frame",
+      "qty": 6.0,
+      "unit": "m",
+      "spec": "50x50x3.0 mm"
+    },
+    {
+      "item": "Platform sheet",
+      "qty": 1.105,
+      "unit": "m2",
+      "spec": "Stainless Steel 3.5 mm"
+    },
+    {
+      "item": "Wheels",
+      "qty": 4,
+      "unit": "nos",
+      "spec": "Industrial caster"
+    },
+    {
+      "item": "Axle rod",
+      "qty": 2,
+      "unit": "nos",
+      "spec": "Solid round bar, 14 mm dia x 0.81 m"
+    },
+    {
+      "item": "Axle hanger brackets",
+      "qty": 4,
+      "unit": "nos",
+      "spec": "Welded hanger/clamp set (approx)"
+    },
+    {
+      "item": "Fasteners set",
+      "qty": 1,
+      "unit": "set",
+      "spec": "M10 bolts/nuts/washers (approx)"
+    }
+  ],
+  "cost_estimation": {
+    "material_cost_inr": 12593.7,
+    "wheel_cost_inr": 7000.0,
+    "hanger_cost_inr": 1120.0,
+    "fastener_cost_inr": 650.0,
+    "fabrication_cost_inr": 7420.16,
+    "assembly_cost_inr": 2430.91,
+    "total_estimated_cost_inr": 31214.77
+  },
+  "manufacturing_timeline": {
+    "fabrication_hours": 10.62,
+    "assembly_hours": 3.91,
+    "total_hours": 14.53,
+    "notes": [
+      "Fabrication includes cutting, welding, and surface prep.",
+      "Assembly includes wheel mounting and final checks.",
+      "Timeline includes wheel-count, environment, material, and loaded-mass factors."
+    ]
+  }
+}
