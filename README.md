@@ -1,69 +1,111 @@
 # Material Handling Platform Trolley - Technical Assessment
 
-This project implements a semi-automated engineering workflow that converts client requirements into:
+This repository provides a semi-automated engineering workflow that converts trolley requirements into calculation, CAD, drawing, costing, and timeline outputs.
+
+## Overview
+
+Pipeline outputs generated from one input specification:
 
 - Engineering calculations
-- Parametric CAD model script
-- 2D fabrication drawings
-- BOM and cost estimation
-- Manufacturing timeline
+- Parametric CAD model (OpenSCAD)
+- 2D fabrication drawing views (DXF and PDF)
+- BOM and costing sheet (CSV)
+- Manufacturing timeline estimate
 
-Project timeline for this assessment is fixed at 72 hours.
+The assessment implementation timeline is fixed at 72 hours and is recorded in the generated summary.
 
-## 1. Inputs
+## Input Schema
 
-Accepted input fields (JSON):
+Accepted fields in JSON input:
 
 - load_capacity_kg
 - platform_length_mm
 - platform_width_mm
-- desired_material (Mild Steel or Stainless Steel)
-- number_of_wheels (2 or 4)
-- operating_environment (Indoor or Outdoor)
+- desired_material: Mild Steel or Stainless Steel
+- number_of_wheels: 2 or 4
+- operating_environment: Indoor or Outdoor
 
-Example: examples/sample_input.json
+Validation constraints:
 
-## 2. Outputs
+- load_capacity_kg must be greater than 0
+- platform_length_mm must be at least 400
+- platform_width_mm must be at least 300
 
-Running the workflow creates:
+Example input files available in this repository:
 
-- outputs/.../summary.json
-- outputs/.../cad/trolley.scad
-- outputs/.../drawings/trolley_views.dxf
-- outputs/.../drawings/trolley_views.pdf (or .txt fallback if matplotlib unavailable)
-- outputs/.../costing/costing_sheet.csv
+- examples/sample_input_4.json
+- examples/sample_input_5.json
 
-## 3. Run Instructions
+## Outputs
 
-1. Install dependencies:
+For a run folder such as outputs/run_001, the workflow generates:
 
-   pip install -r requirements.txt
+- outputs/run_001/summary.json
+- outputs/run_001/cad/trolley.scad
+- outputs/run_001/drawings/trolley_views.dxf
+- outputs/run_001/drawings/trolley_views.pdf
+- outputs/run_001/costing/costing_sheet.csv
 
-2. Run:
+If matplotlib is unavailable, PDF generation falls back to a text file in the drawings directory.
 
-   python src/main.py --input examples/sample_input.json --out outputs/run_001
+## Setup
 
-## 4. Automation Coverage
+1. Create and activate a Python virtual environment.
+2. Install dependencies.
 
-This workflow automates at least 3 required steps:
+~~~bash
+pip install -r requirements.txt
+~~~
 
-- Requirement parsing (JSON input + validation)
+Dependencies listed in this project:
+
+- matplotlib
+- streamlit
+
+## Run The Workflow (CLI)
+
+Run from JSON input:
+
+~~~bash
+python src/main.py --input examples/sample_input_4.json --out outputs/run_sample_input_4
+~~~
+
+Or run using direct CLI fields:
+
+~~~bash
+python src/main.py --use-cli-input --load-capacity-kg 500 --platform-length-mm 1200 --platform-width-mm 800 --desired-material "Mild Steel" --number-of-wheels 4 --operating-environment Indoor --out outputs/run_cli_001
+~~~
+
+## Run The Frontend
+
+The Streamlit app is available at frontend/app.py.
+
+~~~bash
+streamlit run frontend/app.py
+~~~
+
+Frontend run outputs are stored under frontend/runs.
+
+## Automation Coverage
+
+Automated workflow stages:
+
+- Requirement parsing and validation
 - Engineering calculations
-- CAD generation (OpenSCAD parametric script)
-- Drawing generation (DXF + PDF)
-- BOM and costing
+- CAD generation (OpenSCAD script)
+- Drawing generation (DXF plus PDF/text fallback)
+- BOM and cost estimation
+- Manufacturing timeline estimation
 
-## 5. Engineering Assumptions
+## Assumptions And Limitations
 
-See docs/submission_documentation.md (Section 3: Key Assumptions).
+- Structural sizing is first-pass and conservative, and is not a substitute for FEA.
+- CAD output is emitted as OpenSCAD script for reliability in a free toolchain.
+- PDF drawing output depends on matplotlib.
 
-## 6. Limitations
+## Timeline Clarification
 
-- Structural sizing is first-pass and conservative, not FEA.
-- CAD output is OpenSCAD script by default for reliability in a free toolchain.
-- PDF drawing output uses matplotlib if available; otherwise text fallback is generated.
+- Assessment implementation timeline: 72 hours
+- Manufacturing timeline: estimated fabrication and assembly effort for the generated design
 
-## 7. Timeline Clarification
-
-- Project/assignment timeline: 72 hours (captured in summary output as `project_timeline.assignment_timeline_hours`).
-- Manufacturing timeline: estimated fabrication and assembly hours for the designed trolley (captured as `manufacturing_timeline`).
+Both values are captured in summary.json.
